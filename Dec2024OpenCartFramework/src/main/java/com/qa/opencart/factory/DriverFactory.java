@@ -168,7 +168,8 @@ public class DriverFactory {
 				log.info("Running tests on env: " + envName);
 				switch (envName.toLowerCase().trim()) {
 				case "qa":
-					ip = new FileInputStream("./src/test/resources/config/qa.config.properties");
+					ip = (FileInputStream) getClass().getClassLoader()
+			        .getResourceAsStream("config/qa.config.properties");
 					break;
 				case "dev":
 					ip = new FileInputStream("./src/test/resources/config/dev.config.properties");
