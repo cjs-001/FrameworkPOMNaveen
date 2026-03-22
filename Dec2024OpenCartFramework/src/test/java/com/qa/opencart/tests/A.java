@@ -4,20 +4,12 @@ public class A {
 	
 	int i =100;
 	
-	public void asd1()
+	public void asd3()
 	{
-		System.out.println("asd1 f1");
+		System.out.println("asd3 f1");
 	}
 	
-	public void asd2()
-	{
-		System.out.println("asd2 f1");
-	}
-
-	public void asd2()
-	{
-		System.out.println("asd2 f1");
-	}
+	
 
 	
 
