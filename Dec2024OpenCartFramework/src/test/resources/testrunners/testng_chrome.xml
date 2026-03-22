@@ -5,9 +5,17 @@
 <suite name="Opencart App Test Regression Suite" verbose="4"
 	thread-count="3" parallel="tests">
 	
-	<listeners>
-    <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
-</listeners>
+
+
+<listeners>
+		<listener
+			class-name="com.aventstack.chaintest.plugins.ChainTestListener" />
+		<listener
+			class-name="com.qa.opencart.listeners.TestAllureListener" />
+		<!-- <listener class-name="com.qa.opencart.listeners.AnnotationTransformer" 
+			/> -->
+
+	</listeners>
 
 
 	<test name="Login Page Test_chrome">
