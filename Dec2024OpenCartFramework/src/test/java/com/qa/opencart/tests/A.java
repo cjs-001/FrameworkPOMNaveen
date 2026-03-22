@@ -6,7 +6,7 @@ public class A {
 	
 	public void asd4()
 	{
-		System.out.println("asd3 f1");
+		System.out.println("asd3 master");
 	}
 	
 	
