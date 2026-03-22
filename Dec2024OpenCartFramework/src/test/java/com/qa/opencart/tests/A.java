@@ -10,8 +10,9 @@ public class A {
 	}
 	public void asd4()
 	{
-		System.out.println("asd4 master");
+		System.out.println("asd4 f1");
 	}
+	
 	
 	
 
