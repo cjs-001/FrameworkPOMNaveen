@@ -36,17 +36,20 @@ pipeline
         
         
                 
-        stage('Regression Automation Tests') {
+ stage('Regression Automation Tests') {
     steps {
         catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-            // Always pull latest code from your repo
-            git 'https://github.com/cjs-001/FrameworkPOMNaveen.git'
+            // Clean workspace before pulling latest code
+            deleteDir()
 
-            // Explicitly run TestNG suite with required parameters
+            // Pull latest code from f1 branch
+            git branch: 'f1', url: 'https://github.com/cjs-001/FrameworkPOMNaveen.git'
+
+            // Run TestNG suite with required parameters
             bat '''
                 mvn -f Dec2024OpenCartFramework/pom.xml clean test ^
                     -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_chrome.xml ^
-                     -Dbrowser=chrome -Dbrowserversion=latest ^
+                    -Dbrowser=chrome -Dbrowserversion=latest ^
                     -Dtestname=RegressionRun -Dremote=false
             '''
         }
