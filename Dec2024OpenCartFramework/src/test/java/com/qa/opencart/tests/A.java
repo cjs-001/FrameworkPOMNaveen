@@ -4,13 +4,9 @@ public class A {
 	
 	int i =100;
 	
-	public A() {
-		// TODO Auto-generated constructor stub
-	}
-
-	public void asd()
+	public void asd1()
 	{
-		System.out.println("asd");
+		System.out.println("asd1 f1");
 	}
 
 	
