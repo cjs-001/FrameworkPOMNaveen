@@ -8,8 +8,6 @@ public class A {
 		// TODO Auto-generated constructor stub
 	}
 
-	public A() {
-		// TODO Auto-generated constructor stub
-	}
+	
 
 }
