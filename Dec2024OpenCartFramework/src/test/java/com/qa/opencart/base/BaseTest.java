@@ -5,13 +5,11 @@ import java.util.Properties;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-import org.testng.ITestContext;
-import org.testng.ITestNGMethod;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 import com.aventstack.chaintest.plugins.ChainTestListener;
@@ -21,7 +19,6 @@ import com.qa.opencart.pages.LoginPage;
 import com.qa.opencart.pages.ProductInfoPage;
 import com.qa.opencart.pages.RegisterPage;
 import com.qa.opencart.pages.SearchResultsPage;
-import com.qa.opencart.utils.LogUtil;
 
 import io.qameta.allure.Description;
 
@@ -43,19 +40,21 @@ public class BaseTest {
 
 	
 	@Description("init the driver and properties")
-	//@Parameters({"browser", "browserversion", "testname"})
+	@Parameters({"browser", "browserversion", "testname"})
 	@BeforeTest
-	public void setup() {
+	public void setup(@Optional("chrome") String browserName,
+            @Optional("latest") String browserVersion,
+            @Optional("DefaultTest") String testname) {
 		df = new DriverFactory();
 		prop = df.initProp();
 		
 			//browserName is passed from .xml file
-//			if(browserName!=null) {
-//				prop.setProperty("browser", browserName);
-//				prop.setProperty("browserversion", browserVersion);
-//				prop.setProperty("testname", testname);
-//
-//			}
+			if(browserName!=null) {
+				prop.setProperty("browser", browserName);
+				prop.setProperty("browserversion", browserVersion);
+				prop.setProperty("testname", testname);
+
+			}
 
 		driver = df.initDriver(prop);//login page
 		loginPage = new LoginPage(driver);
