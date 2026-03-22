@@ -9,6 +9,11 @@ public class A {
 		System.out.println("asd1 f1");
 	}
 
+	public void asd2()
+	{
+		System.out.println("asd2 f1");
+	}
+
 	
 
 }
