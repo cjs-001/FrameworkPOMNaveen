@@ -4,22 +4,9 @@ public class A {
 	
 	int i =100;
 	
-	public void asd3()
+	public void asd1()
 	{
-		System.out.println("asd3 master");
+		System.out.println("asd1 f1");
 	}
-	public void asd4()
-	{
-		System.out.println("asd4 f1");
-	}
-	public void asd6()
-	{
-		System.out.println("asd6 f1");
-	}
-
 	
-	
-
-	
-
 }
