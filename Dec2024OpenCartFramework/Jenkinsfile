@@ -37,14 +37,22 @@ pipeline
         
                 
         stage('Regression Automation Tests') {
-            steps {
-                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    git 'https://github.com/cjs-001/FrameworkPOMNaveen.git'
-                    bat "mvn -f Dec2024OpenCartFramework/pom.xml clean test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_chrome.xml -Denv=qa -Dremote=false"
-                    
-                }
-            }
+    steps {
+        catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+            // Always pull latest code from your repo
+            git 'https://github.com/cjs-001/FrameworkPOMNaveen.git'
+
+            // Explicitly run TestNG suite with required parameters
+            bat '''
+                mvn -f Dec2024OpenCartFramework/pom.xml clean test ^
+                    -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_chrome.xml ^
+                    -Denv=qa -Dbrowser=chrome -Dbrowserversion=latest ^
+                    -Dtestname=RegressionRun -Dremote=false
+            '''
         }
+    }
+}
+
                 
      
         stage('Publish Allure Reports') {
