@@ -14,7 +14,7 @@ public class A {
 	}
 	public void asd6()
 	{
-		System.out.println("asd5 f1");
+		System.out.println("asd6 f1");
 	}
 
 	
