@@ -22,7 +22,6 @@
 		<parameter name="browser" value="chrome"/>
 <parameter name="browserversion" value="latest"/>
 <parameter name="testname" value="Login Page Test"/>
-<parameter name="remote" value="false"/>
 
 		<classes>
 			<class name="com.qa.opencart.tests.LoginPageTest" />
@@ -34,7 +33,6 @@
 		<parameter name="browser" value="chrome"/>
 <parameter name="browserversion" value="latest"/>
 <parameter name="testname" value="Login Page Test"/>
-<parameter name="remote" value="false"/>
 
 
 		<classes>
@@ -47,7 +45,6 @@
 		<parameter name="browser" value="chrome"/>
 <parameter name="browserversion" value="latest"/>
 <parameter name="testname" value="Login Page Test"/>
-<parameter name="remote" value="false"/>
 
 
 		<classes>

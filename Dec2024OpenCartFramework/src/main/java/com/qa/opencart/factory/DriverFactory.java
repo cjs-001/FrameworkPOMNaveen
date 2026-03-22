@@ -197,6 +197,7 @@ public class DriverFactory {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		System.out.println("ENV NAME = " + envName);
 
 		return prop;
 	}
