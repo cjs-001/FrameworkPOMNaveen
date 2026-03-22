@@ -8,6 +8,10 @@ public class A {
 	{
 		System.out.println("asd3 master");
 	}
+	public void asd4()
+	{
+		System.out.println("asd4 master");
+	}
 	
 	
 
