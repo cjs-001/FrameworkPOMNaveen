@@ -37,15 +37,18 @@ pipeline
         
                 
         stage('Regression Automation Tests') {
-            steps {
-                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    git 'https://github.com/cjs-001/FrameworkPOMNaveen.git'
-                    mvn -f Dec2024OpenCartFramework/pom.xml clean test \
-    -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_chrome.xml \
-    -Denv=qa -Dbrowser=chrome -Dbrowserversion=latest -Dtestname=LoginPageTest
-                }
-            }
+    steps {
+        catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+            git 'https://github.com/cjs-001/FrameworkPOMNaveen.git'
+            bat '''
+                mvn -f Dec2024OpenCartFramework/pom.xml clean test ^
+                    -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_regression.xml ^
+                    -Denv=qa -Dbrowser=chrome -Dbrowserversion=latest -Dtestname=RegressionRun
+            '''
         }
+    }
+}
+
                 
      
         stage('Publish Allure Reports') {
