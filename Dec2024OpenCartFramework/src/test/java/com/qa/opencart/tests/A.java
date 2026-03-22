@@ -12,6 +12,10 @@ public class A {
 	{
 		System.out.println("asd4 f1");
 	}
+	public void asd5()
+	{
+		System.out.println("asd5 f1");
+	}
 
 	
 	
