@@ -93,20 +93,24 @@ pipeline
         }
         
         stage('Sanity Automation Test') {
-            steps {
-                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                
-                 	 // Clean workspace before pulling latest code
-            		deleteDir()
+    steps {
+        catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
 
-            		// Pull latest code from f1 branch
-           			 git branch: 'f1', url: 'https://github.com/cjs-001/FrameworkPOMNaveen.git'
-                    git 'https://github.com/cjs-001/FrameworkPOMNaveen.git'
-                    bat "mvn -f Dec2024OpenCartFramework/pom.xml clean test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_sanity.xml -Dremote=false"
-                    
-                }
-            }
+            // Clean workspace before pulling latest code
+            deleteDir()
+
+            // Pull latest code from f1 branch
+            git branch: 'f1', url: 'https://github.com/cjs-001/FrameworkPOMNaveen.git'
+
+            // Run TestNG suite with required parameters
+            bat """
+                mvn -f Dec2024OpenCartFramework/pom.xml clean test ^
+                    -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_sanity.xml ^
+                    -Dremote=false
+            """
         }
+    }
+}
         
         
         
